@@ -15,11 +15,14 @@ model Admin {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  adminID   Int    @unique
-  email     String @unique
+  adminID   String  @unique
+  email     String  @unique
   firstName String
   lastName  String
   hash      String
+  Places    Place[]
+
+  @@map("admins")
 }
 
 model Place {
@@ -29,6 +32,11 @@ model Place {
 
   name     String
   location String
+
+  adminId String
+  admin   Admin  @relation(fields: [adminId], references: [adminID])
+
+  @@map("places")
 }
 
 model User {
@@ -43,4 +51,6 @@ model User {
   country        String
   numberofPeople Int
   time           DateTime
+
+  @@map("users")
 }
