@@ -1,13 +1,15 @@
 /* eslint-disable prettier/prettier */
 import { Controller, UseGuards } from '@nestjs/common';
 import { Get } from '@nestjs/common/decorators/http/request-mapping.decorator';
-import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from '../auth/decorator';
+import { JwtGuard } from '../auth/guard';
+import { Admin } from '@prisma/client';
 
-@Controller('administrator')
-export class AdminController {
-  @UseGuards(AuthGuard('jwt'))
-  @Get('admin')
-  getAdmin() {
-    return 'admin info';
-  }
-}
+ @UseGuards(JwtGuard)
+ @Controller('admins')
+ export class AdminController {
+   @Get('admin')
+   getAdmin(@GetUser() admin: Admin) {
+     return admin;
+   }
+ }

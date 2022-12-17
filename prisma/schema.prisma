@@ -39,7 +39,7 @@ model Place {
   @@map("places")
 }
 
-model User {
+model Tourist {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -52,5 +52,5 @@ model User {
   numberofPeople Int
   time           DateTime
 
-  @@map("users")
+  @@map("tourists")
 }
