@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { TouristicPlaceController } from './touristic-place.controller';
-import { TouristicPlaceService } from './touristic-place.service';
+import { TouristicPlaceController } from './place.controller';
+import { TouristicPlaceService } from './place.service';
 
 @Module({
   controllers: [TouristicPlaceController],
