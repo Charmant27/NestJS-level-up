@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { HttpStatus } from '@nestjs/common/enums';
 import { AuthService } from './auth.service';
 import { AuthDto, LoginDto } from './dto';
 
@@ -7,13 +8,14 @@ import { AuthDto, LoginDto } from './dto';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Post('login')
-  login(@Body() dto: LoginDto) {
-    return this.authService.login(dto);
-  }
-
   @Post('signup')
   signup(@Body() dto: AuthDto) {
     return this.authService.signup(dto);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('login')
+  login(@Body() dto: LoginDto) {
+    return this.authService.login(dto);
   }
 }
