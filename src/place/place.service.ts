@@ -75,7 +75,7 @@ export class TouristicPlaceService {
         id: placeId,
       },
     });
-    if (!place || place.adminId === adminId) {
+    if (!place || place.adminId !== adminId) {
       throw new ForbiddenException('Invalid data');
     }
     return this.prisma.place.delete({

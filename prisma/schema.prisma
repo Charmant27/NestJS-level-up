@@ -50,6 +50,7 @@ model Tourist {
   phoneNumber    Int?
   country        String
   numberofPeople Int
+  place          String
   time           DateTime
 
   @@map("tourists")
