@@ -1,3 +1,1 @@
-This is a project I am currently making to improve my NestJS skills. I have been currently learning NestJS.
-This is a project of tourism reservation where a tourist can make reservation of his touristic activity. 
-It's not yet complete I am currently working on it. 
+this is a platform where tourists from all over the world can view touristic places and book online their visit at a place of their choice.
